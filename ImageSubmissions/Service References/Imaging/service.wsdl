@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuildIdx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strIDXFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPolicyNbr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sInsured" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFolderType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFlowId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sStepId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRefNbr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDocNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFolder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDrawer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPageDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sJPEG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXM" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuildIdxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BuildIdxResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="copyFileToImageRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFilePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPathTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPDFName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="copyFileToImageRightResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="copyImageFilesToImageRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFilePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sIdxFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPathTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPDFName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="copyImageFilesToImageRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="copyImageFilesToImageRightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuildIdxSoapIn">
+    <wsdl:part name="parameters" element="tns:BuildIdx" />
+  </wsdl:message>
+  <wsdl:message name="BuildIdxSoapOut">
+    <wsdl:part name="parameters" element="tns:BuildIdxResponse" />
+  </wsdl:message>
+  <wsdl:message name="copyFileToImageRightSoapIn">
+    <wsdl:part name="parameters" element="tns:copyFileToImageRight" />
+  </wsdl:message>
+  <wsdl:message name="copyFileToImageRightSoapOut">
+    <wsdl:part name="parameters" element="tns:copyFileToImageRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="copyImageFilesToImageRightSoapIn">
+    <wsdl:part name="parameters" element="tns:copyImageFilesToImageRight" />
+  </wsdl:message>
+  <wsdl:message name="copyImageFilesToImageRightSoapOut">
+    <wsdl:part name="parameters" element="tns:copyImageFilesToImageRightResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildIdx">
+      <wsdl:input message="tns:BuildIdxSoapIn" />
+      <wsdl:output message="tns:BuildIdxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="copyFileToImageRight">
+      <wsdl:input message="tns:copyFileToImageRightSoapIn" />
+      <wsdl:output message="tns:copyFileToImageRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="copyImageFilesToImageRight">
+      <wsdl:input message="tns:copyImageFilesToImageRightSoapIn" />
+      <wsdl:output message="tns:copyImageFilesToImageRightSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuildIdx">
+      <soap:operation soapAction="http://tempuri.org/BuildIdx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="copyFileToImageRight">
+      <soap:operation soapAction="http://tempuri.org/copyFileToImageRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="copyImageFilesToImageRight">
+      <soap:operation soapAction="http://tempuri.org/copyImageFilesToImageRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuildIdx">
+      <soap12:operation soapAction="http://tempuri.org/BuildIdx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="copyFileToImageRight">
+      <soap12:operation soapAction="http://tempuri.org/copyFileToImageRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="copyImageFilesToImageRight">
+      <soap12:operation soapAction="http://tempuri.org/copyImageFilesToImageRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://siuweb1ex/sendtoimageright/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://siuweb1ex/sendtoimageright/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
